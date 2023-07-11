@@ -3,21 +3,27 @@ import Header from './header'
 import SaleTiles from './SaleTiles'
 import infoImg from '../assets/infoImg.png'
 
-export default function Home() {
-const th = [
-    {name:"Townhall 10", img_link:'../assets/Town-Hall-10.jpg'},
-    {name:"Townhall 11", img_link:'../assets/Town-Hall-11-accounts.jpg'},
-    {name:"Townhall 12", img_link:'../assets/Town-Hall-12-accounts.jpg'},
-    {name:"Townhall 13", img_link:'../assets/Town-Hall-13-accounts.jpg'},
-    {name:"Townhall 14", img_link:'../assets/Town-Hall-14.jpg'},
-    {name:"Townhall 15", img_link:'../assets/Town-Hall-15.jpg'},
-    {name:"Gold Pass", img_link:'../assets/GoldPass.jpg'},
-    {name:"Gems", img_link:'../assets/gems.jpg'},
-]
+export default function Home(props) {
+
+
+    const th = [
+        {name:"Townhall 10", img_link:'../assets/Town-Hall-10.jpg'},
+        {name:"Townhall 11", img_link:'../assets/Town-Hall-11-accounts.jpg'},
+        {name:"Townhall 12", img_link:'../assets/Town-Hall-12-accounts.jpg'},
+        {name:"Townhall 13", img_link:'../assets/Town-Hall-13-accounts.jpg'},
+        {name:"Townhall 14", img_link:'../assets/Town-Hall-14.jpg'},
+        {name:"Townhall 15", img_link:'../assets/Town-Hall-15.jpg'},
+        {name:"Gold Pass", img_link:'../assets/GoldPass.jpg'},
+        {name:"Gems", img_link:'../assets/gems.jpg'},
+    ]
   return (
     <div id='Home'>
         <Header/>
         <br />
+        <br />
+        <h1 className='HomeHeading'>ACCOUNTS FOR SALE</h1>
+        <hr />
+        <SaleTiles start="0" end="15"/>
         <br />
         <br />
         <h1 className='HomeHeading'>CHOOSE TOWN HALL LEVEL</h1>
@@ -36,7 +42,6 @@ const th = [
         <br />
         <h1 className='HomeHeading'>CLASH OF CLANS ACCOUNT FOR SALE</h1>
         <hr />
-        <SaleTiles />
         <div className="info">
             <img src={infoImg} alt="" />
             <div className="data">
