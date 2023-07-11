@@ -16,7 +16,7 @@ export default function Admin() {
             <input type="text" placeholder='name' />
             <input type="text" placeholder='description' />
             <input type="text" placeholder='price' />
-            <button type="submit"></button>
+            <button type="submit">Submit</button>
         </form>
     </div>
   )
