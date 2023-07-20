@@ -5,94 +5,47 @@ import Sale_Tile from "./Sale_tile";
 export default function SaleTiles(props) {
 
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
+  const [unavailabe, setUnavailable] = useState(false);
+  const [Account_col, setAccounts] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://127.0.0.1:5000/get_data'); // Replace with your API endpoint
         const jsonData = await response.json();
-        setData(jsonData);
-        console.log(jsonData);
+        setAccounts(jsonData);
         setIsLoading(false);
       } catch (error) {
         console.log('Error:', error);
-        setIsLoading(false);
+        setUnavailable(true);
       }
     };
 
     fetchData();
   }, []);
+  if (unavailabe) {
+    return (<div className='Loading_pg'>
+      <h1>
+        Unable to load content
+        </h1>
+      </div>); // Display loader while fetching data
+  }
 
   if (isLoading) {
-    return <div>Loading...</div>; // Display loader while fetching data
+    return (
+    <div className='Loading_pg'>
+      <h1 className='loading'>
+        Loading...
+        </h1>
+    </div> // Display loader while fetching data
+    );
   }
 
   return (
     <div id="Saletiles">
-      {data.map((element, index) => (
-        <Sale_Tile element={element}/>
+      {Account_col.map((element, index) => (
+        <Sale_Tile key={index} uid={props.uid} element={element}/>
       ))}
     </div>
   );
-  // const item = [
-  //   {
-  //     description:"test",
-  //     image1:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/th14_acc.jpg",
-  //     image2:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/base_img.jpg",
-  //     price:"75",
-  //     title:"test"
-  //   },
-  //   {
-  //     description:"test",
-  //     image2:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/base_img.jpg",
-  //     image1:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/th14_acc.jpg",
-  //     price:"75",
-  //     title:"test"
-  //   },
-  //   {
-  //     description:"test",
-  //     image1:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/th14_acc.jpg",
-  //     image2:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/base_img.jpg",
-  //     price:"75",
-  //     title:"test"
-  //   },
-  //   {
-  //     description:"test",
-  //     image2:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/base_img.jpg",
-  //     image1:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/th14_acc.jpg",
-  //     price:"75",
-  //     title:"test"
-  //   },
-  //   {
-  //     description:"test",
-  //     image1:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/th14_acc.jpg",
-  //     image2:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/base_img.jpg",
-  //     price:"75",
-  //     title:"test"
-  //   },
-  //   {
-  //     description:"test",
-  //     image2:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/base_img.jpg",
-  //     image1:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/th14_acc.jpg",
-  //     price:"75",
-  //     title:"test"
-  //   },
-  //   {
-  //     description:"test",
-  //     image1:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/th14_acc.jpg",
-  //     image2:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/base_img.jpg",
-  //     price:"75",
-  //     title:"test"
-  //   },
-  //   {
-  //     description:"test",
-  //     image2:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/base_img.jpg",
-  //     image1:"https://storage.googleapis.com/cocmarketplace-6de0e.appspot.com/th14_acc.jpg",
-  //     price:"75",
-  //     title:"test"
-  //   },
-  // ]
-
-  
 }

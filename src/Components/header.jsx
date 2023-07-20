@@ -1,5 +1,6 @@
 import React from 'react'
 import cover from '../assets/cover.png'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -11,10 +12,10 @@ export default function Header() {
             </h1>
             <br />
             <div className="link">
-                <a href="#">WHY US</a>
-                <a href="#">HOW TO BUY</a>
+                <Link to="#">WHY US</Link>
+                <Link to="#">HOW TO BUY</Link>
             </div>
-            <a href="#">HOW IT WORKS</a>
+            <Link to="#">HOW IT WORKS</Link>
         </div>
     </div>
   )

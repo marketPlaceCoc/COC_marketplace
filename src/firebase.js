@@ -19,13 +19,13 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBjYX2i2xDJjFBddSadkxvrCnP2NUp_YJU",
-    authDomain: "cchat-43df7.firebaseapp.com",
-    projectId: "cchat-43df7",
-    storageBucket: "cchat-43df7.appspot.com",
-    messagingSenderId: "430574426517",
-    appId: "1:430574426517:web:b38720cb3225e16efcfe9c",
-    measurementId: "G-S8TJ78G4EV"
+    apiKey: "AIzaSyCOAoLSqLIMVjY2vxO3lQkNx86T2nLt3e0",
+    authDomain: "cocmarketplace-6de0e.firebaseapp.com",
+    projectId: "cocmarketplace-6de0e",
+    storageBucket: "cocmarketplace-6de0e.appspot.com",
+    messagingSenderId: "38917010991",
+    appId: "1:38917010991:web:05623dc44fa7f4d24278da",
+    measurementId: "G-DPYWJ7M79H"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -50,6 +50,8 @@ const signInWithGoogle = async () => {
                 email: user.email,
             });
         }
+        console.log(user.uid)
+        return user.uid
     } catch (err) {
         console.error(err);
         alert(err.message);
@@ -85,7 +87,10 @@ const fetchCollections = async () => {
 
 const logInWithEmailAndPassword = async (email, password) => {
     try {
-        await signInWithEmailAndPassword(auth, email, password);
+        const res =await signInWithEmailAndPassword(auth, email, password);
+        const user = res.user
+        console.log(user.uid)
+        return user.uid
     } catch (err) {
         console.error(err);
         alert(err.message);
@@ -102,6 +107,8 @@ const registerWithEmailAndPassword = async (name, email, password) => {
             authProvider: "local",
             email,
         });
+        console.log(user.uid)
+        return user.uid
     } catch (err) {
         console.error(err);
         alert(err.message);
@@ -119,6 +126,7 @@ const sendPasswordReset = async (email) => {
 
 const logout = () => {
     signOut(auth);
+    return true
 };
 
 export {
