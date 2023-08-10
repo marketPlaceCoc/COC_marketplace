@@ -33,17 +33,16 @@ export default function Navbar(props) {
 
   return (
     <div id="Navbar">
-      <div
-        className={`hamburger-menu`}
-        
-      >
+      <div className={`hamburger-menu`}>
         <div className="ham_top">
           <Link to="/">
             <span>
               <img src="./assets/logo.png" alt="" />
             </span>
           </Link>
-          <button id="burger" onClick={toggleMenu}>=</button>
+          <button id="burger" onClick={toggleMenu}>
+            =
+          </button>
         </div>
         <div className={`ham_bottom ${isOpen ? "open" : ""}`}>
           {props.uid ? (
@@ -72,6 +71,9 @@ export default function Navbar(props) {
           </Link>
           <Link to="/FAQs">
             <span>FAQ</span>
+          </Link>
+          <Link to="/reviews">
+            <span>Reviews</span>
           </Link>
           <Link to="/Cart">
             <span>
@@ -140,6 +142,9 @@ export default function Navbar(props) {
           </Link>
           <Link to="/blog">
             <span>Blogs</span>
+          </Link>
+          <Link to="/reviews">
+            <span>Reviews</span>
           </Link>
           {/* <a href="/blog">
           </a> */}

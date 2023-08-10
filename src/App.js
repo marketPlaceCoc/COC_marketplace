@@ -2,7 +2,7 @@ import Navbar from "./Components/Navbar";
 import React, { useState, useEffect } from "react";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Blog from "./pages/Blog";
 import Faq from "./pages/Faq";
@@ -13,6 +13,7 @@ import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import User from "./pages/User";
 import SaleTiles from "./Components/SaleTiles";
+import Review from "./pages/Review";
 
 function App() {
   let [cartItem, setCartItem] = useState("");
@@ -40,11 +41,11 @@ function App() {
 
 
   return (
-    <Router className="App">
+    <BrowserRouter className="App">
       <Navbar uid={uid} cart="0" cartCost="0" />
       <Routes>
         <Route
-          exact
+        
           path="/"
           element={
             <Home
@@ -57,7 +58,7 @@ function App() {
           }
         />
         <Route
-          exact
+        
           path="/Accounts"
           Account_col={Account_col}
           setAccounts={setAccounts}
@@ -66,13 +67,12 @@ function App() {
           />}
         />
         <Route
-          exact
           path="/login"
           element={<Login uid={uid} setUid={setUid} />}
         />
-        <Route exact path="/Blog" element={<Blog cartItem={cartItem} />} />
+        <Route path="/Blog" element={<Blog cartItem={cartItem} />} />
         <Route
-          exact
+        
           path="/Cart"
           element={
             <Cart
@@ -84,25 +84,26 @@ function App() {
             />
           }
         />
-        <Route exact path="/FAQs" element={<Faq cartItem={cartItem} />} />
+        <Route path="/FAQs" element={<Faq cartItem={cartItem} />} />
         <Route
-          exact
+        
           path="/admin"
           uid={uid}
           element={<Admin />}
         />
         <Route
-          exact
+        
           uid={uid}
           path="/Product"
           element={<ProductPage productID={"product1"} uid={uid} />}
         />
-        <Route exact path="/success" element={<Success uid={uid} setUid={setUid} />} />
-        <Route exact path="/Canceled" element={<Cancel />} />
-        <Route exact path="/Account" element={<User uid={uid} setUid={setUid}/>} />
+        <Route path="/success" element={<Success uid={uid} setUid={setUid} />} />
+        <Route path="/Canceled" element={<Cancel />} />
+        <Route path="/Account" element={<User uid={uid} setUid={setUid}/>} />
+        <Route path="/reviews" element={<Review/>} />
       </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 

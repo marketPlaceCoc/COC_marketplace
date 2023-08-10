@@ -39,10 +39,7 @@ export default function Login({uid,setUid}) {
 };
 const triggerlogin =async (e) => {
     e.preventDefault();
-    const email = "admin@clashmarketplace.com";
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  console.log(emailRegex.test(email))
+    
     if ((loginEmail !== "")&&(loginPassword !== "")){
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       let mail_conf = emailRegex.test(loginEmail)
@@ -53,7 +50,7 @@ const triggerlogin =async (e) => {
           setUid(res);
           history('/')
         }else{
-          alert('veriable not string type- it is '+(typeof res))
+          alert('variable not string type- it is '+(typeof res))
           console.log(res)
         }
       }
