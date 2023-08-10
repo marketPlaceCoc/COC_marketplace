@@ -118,7 +118,7 @@ export default function Review() {
     const fetchData = async () => {
       try {
         // const response = await fetch('https://clashmarketplace-backend.onrender.com/get_data'); // Replace with your API endpoint
-        const response = await fetch("http://127.0.0.1:8080/reviews"); // Replace with your API endpoint
+        const response = await fetch("http://clashmarketplace-backend.onrender.com/reviews"); // Replace with your API endpoint
         const jsonData = await response.json();
         setReviews(jsonData["review"]);
         console.log(jsonData);
