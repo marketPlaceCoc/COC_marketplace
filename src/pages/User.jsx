@@ -20,7 +20,7 @@ export default function User({ uid, setUid }) {
       console.log("before profile fetch ", uid);
       try {
         const response = await fetch(
-          `https://clashmarketplace-backend.onrender.com/profile/${uid}`
+          `https://coc-backend-gxhn.onrender.com/profile/${uid}`
         ); // Replace with your API endpoint
         const jsonData = await response.json();
         console.log("Response:", jsonData.res);
@@ -36,7 +36,7 @@ export default function User({ uid, setUid }) {
       } catch (error) {
         console.log("Error:", error);
         console.log(
-          `https://clashmarketplace-backend.onrender.com/profile/${uid}`
+          `https://coc-backend-gxhn.onrender.com/profile/${uid}`
         );
         setIsLoading(false);
         setUnavailable(true);

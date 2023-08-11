@@ -20,8 +20,8 @@ const AddReviewForm = ({ setAddReview, setReview, review }) => {
     // console.log(review)
 
     try {
-      // const response = await fetch('https://clashmarketplace-backend.onrender.com/get_data'); // Replace with your API endpoint
-      const response = await fetch("http://127.0.0.1:8080/reviews", {
+      // const response = await fetch('/get_data'); // Replace with your API endpoint
+      const response = await fetch("https://coc-backend-gxhn.onrender.com/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Set the content type to JSON
@@ -117,8 +117,8 @@ export default function Review() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch('https://clashmarketplace-backend.onrender.com/get_data'); // Replace with your API endpoint
-        const response = await fetch("http://clashmarketplace-backend.onrender.com/reviews"); // Replace with your API endpoint
+        // const response = await fetch('/get_data'); // Replace with your API endpoint
+        const response = await fetch("https://coc-backend-gxhn.onrender.com/reviews"); // Replace with your API endpoint
         const jsonData = await response.json();
         setReviews(jsonData["review"]);
         console.log(jsonData);

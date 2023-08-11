@@ -20,7 +20,7 @@ export default function Success(props) {
       props.setUid(u_id)
       // console.log(paramValue)
       try {
-        const url = "https://clashmarketplace-backend.onrender.com/add_to_owned_accounts";
+        const url = "https://coc-backend-gxhn.onrender.com/add_to_owned_accounts";
         const data = { 
           "user_id":u_id,
           "document_id":Obj_id,
