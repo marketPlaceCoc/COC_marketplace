@@ -2,7 +2,7 @@ import Navbar from "./Components/Navbar";
 import React, { useState, useEffect } from "react";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter,HashRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Blog from "./pages/Blog";
 import Faq from "./pages/Faq";
@@ -41,7 +41,7 @@ function App() {
 
 
   return (
-    <BrowserRouter className="App">
+    <HashRouter className="App">
       <Navbar uid={uid} cart="0" cartCost="0" />
       <Routes>
         <Route
@@ -103,7 +103,7 @@ function App() {
         <Route path="/reviews" element={<Review/>} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
