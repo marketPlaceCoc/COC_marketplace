@@ -36,6 +36,37 @@ export default function ProductPage(props) {
         console.error("Error:", error);
       });
   }
+  function cryptoCheckoutLink(productID) {
+    setloading(true)
+    const url = "https://coc-backend-gxhn.onrender.com/crypto_pay_url";
+    // const url = "http://127.0.0.1:8080/crypto_pay_url";
+    const data = { 
+      "product_id": productID,
+      "Uid": props.uid
+    };
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setloading(false)
+        const checkoutLink = data.checkout_link.hosted_url;
+        // console.log(checkoutLink);
+        // Redirect the user to the checkout link
+        window.location.href = checkoutLink;
+      })
+      .catch((error) => {
+        setloading(false)
+        setError(true)
+        setText(error)
+        console.error("Error:", error);
+      });
+  }
 
   
   const add_to_cart = (productID) => {
@@ -101,7 +132,10 @@ export default function ProductPage(props) {
           <h2>${props.item.price}.00 USD</h2>
           <div className="btns">
           <button className="buy" onClick={() => createCheckoutLink(props.item.index)}>
-            Procede to checkout{" "}
+            Checkout with card Payent{" "}
+          </button>
+          <button className="buy" onClick={() => cryptoCheckoutLink(props.item.index)}>
+            Checkout With Crypto currency
           </button>
           <button className="cart" onClick={() => add_to_cart(props.item.index)}>Add to Cart</button>
           <button className="close" onClick={() => props.close(false)}>Close</button>
