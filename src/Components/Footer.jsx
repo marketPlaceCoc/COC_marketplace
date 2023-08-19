@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -16,17 +17,17 @@ export default function Footer() {
             <div className="details">
                 <h1>My Account</h1>
                 <ul>
-                    <li>My Account</li>
-                    <li>My Orders</li>
+                    <li ><Link to="/Account">My Account</Link></li>
+                    <li><Link to="/Account">My Orders</Link></li>
                 </ul>
             </div>
             <div className="faq">
                 <h1>Important Links</h1>
                 <ul>
-                    <li>Why Us</li>
-                    <li>How it works</li>
-                    <li>How to buy</li>
-                    <li>Contact</li>
+                    <li><Link to='/FAQs'>Why Us</Link></li>
+                    <li><Link to='/FAQs'>How it works</Link></li>
+                    <li><Link to='/FAQs'>How to buy</Link></li>
+                    <li><Link to='/FAQs'>Contact</Link></li>
                 </ul>
             </div>
             <div className="review">
@@ -38,8 +39,8 @@ export default function Footer() {
         <div className="bottom">
             <h1>&copy; Clash market place</h1>
             <div className='links'>
-                <a href="#">About Us</a>
-                <a href="#">Terms & privacy</a>
+                <a href="/FAQs">About Us</a>
+                <a href="/FAQs">Terms & privacy</a>
             </div>
         </div>
     </div>

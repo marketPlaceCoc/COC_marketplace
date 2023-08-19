@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './header'
 import SaleTiles from './SaleTiles'
 import infoImg from '../assets/infoImg.png'
+import { Link } from 'react-router-dom'
 
 export default function Home(props) {
 
@@ -30,10 +31,10 @@ export default function Home(props) {
         <hr />
         <div className="townhalls">
             {th.map((item, index) => (
-                <div key={index} className='townhall'>
+                <Link to='/Accounts' key={index} className='townhall'>
                     <img src={item.img_link} alt={item.name} />
                     <h3>{item.name}</h3>
-                </div>
+                </Link>
             ))}
         </div>
         
@@ -66,12 +67,12 @@ To cut through all that, you can choose to save thousands of hours and buy Clash
             <div className="blog">
                 <img src="../assets/blog1.jpg" alt="" />
                 <h1>How to recover Class of Clans account?</h1>
-                <button>Read More</button>
+                <Link to='/blog'>Read More</Link>
             </div>
             <div className="blog">
                 <img src="../assets/blog2.jpg" alt="" />
                 <h1>Top Clash Of Clans MarketPlaces in 2023</h1>
-                <button>Read More</button>
+                <Link to='/blog'>Read More</Link>
             </div>
         </div>
         <br />

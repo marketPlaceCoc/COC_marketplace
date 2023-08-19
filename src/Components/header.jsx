@@ -12,10 +12,10 @@ export default function Header() {
             </h1>
             <br />
             <div className="link">
-                <Link to="#">WHY US</Link>
-                <Link to="#">HOW TO BUY</Link>
+                <Link to="/FAQs">WHY US</Link>
+                <Link to="/FAQs">HOW TO BUY</Link>
             </div>
-            <Link to="#">HOW IT WORKS</Link>
+            <Link to="/FAQs">HOW IT WORKS</Link>
         </div>
     </div>
   )
