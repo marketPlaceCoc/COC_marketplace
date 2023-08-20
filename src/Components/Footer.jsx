@@ -30,10 +30,10 @@ export default function Footer() {
                     <li><Link to='/FAQs'>Contact</Link></li>
                 </ul>
             </div>
-            <div className="review">
+            {/* <div className="review">
                 <p><span>&#9733;</span> Rated 4.5/5</p>
                 <strong>"Great Service!"<br /><em>- Luke dunphy, New York</em></strong>
-            </div>
+            </div> */}
         </div>
         <hr />
         <div className="bottom">
